@@ -28,3 +28,19 @@ def prendiFoto():
     ffoto = discord.File(fotoPath)
 
     return ffoto
+
+def  prendiFrase(path):
+    frasi: list[str]  = []
+
+    with open(path) as f:
+        for line in f:
+            frasi.append(line)
+
+    return random.choice(frasi)
+
+def formattaInsulto(frase: str, arg):
+    frase = frase.replace("{PLACEHOLDER}", arg)
+    return frase
+
+
+print(prendiFrase('static/text/frasi.txt'))

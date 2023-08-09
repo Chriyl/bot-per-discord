@@ -37,6 +37,12 @@ async def chiSono(ctx):
 @bot.command()
 async def gatto(ctx):
     await ctx.send(file = utils.prendiFoto())
+
+@bot.command()
+async def frase(ctx, arg: str):
+    frase: str = utils.prendiFrase('static/text/frasi.txt')
+    frase = utils.formattaInsulto(frase, arg)
+    await ctx.send(frase)
     
 
 bot.run(TOKEN) # qui il bot runna
