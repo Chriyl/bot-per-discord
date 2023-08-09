@@ -38,7 +38,7 @@ def prendiFoto():
     except Exception as e:
         return f"c'é stato il seguente errore {e}"
 
-def  prendiFrase(path):
+def  prendiFrase(path: str):
     frasi: list[str]  = []
     try:
         with open(path) as f:
