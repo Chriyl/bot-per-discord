@@ -2,6 +2,7 @@ import os
 from discord.ext import commands
 import discord
 from dotenv import load_dotenv
+import utils
 
 intents = discord.Intents.default()
 intents.typing = True
@@ -21,6 +22,8 @@ bot = commands.Bot(command_prefix="!", intents=intents) # specifici l'intenti de
 async def on_ready():
     print(f'Bot is ready. Logged in as {bot.user.name}')
 
+
+
 @bot.command() # questo é il ping del bot
 async def ping(ctx): # ctx é l'argomento di colui che ha mandato il messaggio ed é un oggetto quindi ha metodi e elementi
     await ctx.send("pong")
@@ -30,6 +33,10 @@ async def chiSono(ctx):
     author: str = ctx.author
     channel: str = ctx.channel
     await ctx.reply(f"sei {author.mention} e stai scrivendo in {channel}")
+
+@bot.command()
+async def gatto(ctx):
+    await ctx.send(file = utils.prendiFoto())
     
 
 bot.run(TOKEN) # qui il bot runna
