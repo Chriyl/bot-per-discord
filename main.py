@@ -15,7 +15,7 @@ load_dotenv(dotenv_path=r"C:\Users\chris\OneDrive\Desktop\cred\credentials.env")
 TOKEN = os.environ.get("TOKEN") # qui prende il token come variabile d'ambiente
 PATH_TEXT = os.environ.get("PATH_TEXT_FILE")
 
-print(PATH_TEXT)
+
 
 bot = commands.Bot(command_prefix="!", intents=intents) # specifici l'intenti del bot
 
