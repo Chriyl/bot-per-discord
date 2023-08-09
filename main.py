@@ -30,9 +30,9 @@ async def ping(ctx): # ctx é l'argomento di colui che ha mandato il messaggio e
 
 @bot.command()
 async def chiSono(ctx):
-    author: str = ctx.author
+    author: str = ctx.author.mention
     channel: str = ctx.channel
-    await ctx.reply(f"sei {author.mention} e stai scrivendo in {channel}")
+    await ctx.reply(f"sei {author} e stai scrivendo in {channel}")
 
 @bot.command()
 async def gatto(ctx):
@@ -40,9 +40,13 @@ async def gatto(ctx):
 
 @bot.command()
 async def frase(ctx, arg: str):
+
     frase: str = utils.prendiFrase('static/text/frasi.txt')
     frase = utils.formattaInsulto(frase, arg)
     await ctx.send(frase)
+
+    await ctx.send("c'é stato un errore")
+
     
 
 bot.run(TOKEN) # qui il bot runna

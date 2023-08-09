@@ -19,26 +19,31 @@ puoi farlo ma é scomodo consigliato anche questo se vuoi rendere elegante il co
 """
 
 def prendiFoto():
-    dir = os.path.join('static', 'photo', 'gatti')
+    try:
+        dir = os.path.join('static', 'photo', 'gatti')
 
-    foto = [f for f in os.listdir(dir) if os.path.isfile(os.path.join(dir, f))]
+        foto = [f for f in os.listdir(dir) if os.path.isfile(os.path.join(dir, f))]
 
-    randFoto = random.choice(foto)
-    fotoPath = os.path.join(dir, randFoto)
-    ffoto = discord.File(fotoPath)
+        randFoto = random.choice(foto)
+        fotoPath = os.path.join(dir, randFoto)
+        ffoto = discord.File(fotoPath)
 
-    return ffoto
+        return ffoto
+    except Exception as e:
+        return f"c'é stato il seguente errore {e}"
 
 def  prendiFrase(path):
     frasi: list[str]  = []
+    try:
+        with open(path) as f:
+            for line in f:
+                frasi.append(line)
 
-    with open(path) as f:
-        for line in f:
-            frasi.append(line)
+        return random.choice(frasi)
+    except Exception as e:
+        return f"c'é stato il seguente errore: {e}"
 
-    return random.choice(frasi)
-
-def formattaInsulto(frase: str, arg):
+def formattaInsulto(frase: str, arg: str):
     frase = frase.replace("{PLACEHOLDER}", arg)
     return frase
 
