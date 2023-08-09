@@ -13,7 +13,9 @@ load_dotenv(dotenv_path=r"C:\Users\chris\OneDrive\Desktop\cred\credentials.env")
 # production e nel mio server in fase di deploy
 
 TOKEN = os.environ.get("TOKEN") # qui prende il token come variabile d'ambiente
+PATH_TEXT = os.environ.get("PATH_TEXT_FILE")
 
+print(PATH_TEXT)
 
 bot = commands.Bot(command_prefix="!", intents=intents) # specifici l'intenti del bot
 
@@ -41,12 +43,10 @@ async def gatto(ctx):
 @bot.command()
 async def frase(ctx, arg: str):
 
-    frase: str = utils.prendiFrase('static/text/frasi.txt')
+    frase: str = utils.prendiFrase(PATH_TEXT)
     frase = utils.formattaInsulto(frase, arg)
     await ctx.send(frase)
 
 
-
-    
 
 bot.run(TOKEN) # qui il bot runna

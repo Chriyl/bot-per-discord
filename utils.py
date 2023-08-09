@@ -1,6 +1,9 @@
 import os
 import random
 import discord
+from dotenv import load_dotenv
+
+load_dotenv(r'C:\Users\chris\OneDrive\Desktop\cred\credentials.env')
 
 """"
 
@@ -18,14 +21,17 @@ puoi farlo ma é scomodo consigliato anche questo se vuoi rendere elegante il co
 
 """
 
+
+
 def prendiFoto():
     try:
-        dir = os.path.join('static', 'photo', 'gatti')
 
-        foto = [f for f in os.listdir(dir) if os.path.isfile(os.path.join(dir, f))]
+        PATH_CAT = os.environ.get("PATH_CAT_FILE")
+
+        foto = [f for f in os.listdir(PATH_CAT) if os.path.isfile(os.path.join(PATH_CAT, f))]
 
         randFoto = random.choice(foto)
-        fotoPath = os.path.join(dir, randFoto)
+        fotoPath = os.path.join(PATH_CAT, randFoto)
         ffoto = discord.File(fotoPath)
 
         return ffoto
@@ -48,4 +54,3 @@ def formattaInsulto(frase: str, arg: str):
     return frase
 
 
-print(prendiFrase('static/text/frasi.txt'))
