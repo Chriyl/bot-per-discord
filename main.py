@@ -45,7 +45,7 @@ async def frase(ctx, arg: str):
     frase = utils.formattaInsulto(frase, arg)
     await ctx.send(frase)
 
-    await ctx.send("c'é stato un errore")
+
 
     
 
