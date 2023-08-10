@@ -1,4 +1,4 @@
-  GNU nano 6.2                                            Dockerfile
+
 # Usa l'immagine di Python 3.6 come base
 FROM python:3.6
 
