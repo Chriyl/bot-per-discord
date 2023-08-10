@@ -6,7 +6,7 @@ FROM python:3.6
 COPY main.py /app/
 COPY utils.py /app/
 COPY credentials.env  /app/
-COPY static /app/stat
+COPY static /app/static
 
 # Imposta la directory di lavoro all'interno del contenitore
 WORKDIR /app
