@@ -10,13 +10,15 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 
 # Copia il codice sorgente o gli script all'interno del contenitore
 # Puoi usare il comando COPY per copiare i tuoi file nel contenitore
-COPY main.py
-COPY utils.py
-COPY requirements.txt
-
+COPY main.py /app/
+COPY utils.py /app/
+COPY requirements.txt /app/
 
 # Imposta la directory di lavoro all'interno del contenitore
-# WORKDIR /path/to/your/code
-RUN pip install requirements
+WORKDIR /app
+
+# Installa le dipendenze Python
+RUN pip3 install -r requirements.txt
+
 # Esegui il tuo comando principale o avvia l'interprete Python
 CMD ["python3", "main.py"]
