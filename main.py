@@ -22,27 +22,27 @@ bot = commands.Bot(command_prefix="!", intents=intents) # specifici l'intenti de
 
 
 @bot.event # questo é il messaggio che esce in console se il bot va online
-async def on_ready():
+async def on_ready() -> None:
     print(f'Bot is ready. Logged in as {bot.user.name}')
 
 
 
 @bot.command() # questo é il ping del bot
-async def ping(ctx): # ctx é l'argomento di colui che ha mandato il messaggio ed é un oggetto quindi ha metodi e elementi
+async def ping(ctx)  -> None: # ctx é l'argomento di colui che ha mandato il messaggio ed é un oggetto quindi ha metodi e elementi
     await ctx.send("pong")
 
 @bot.command()
-async def chiSono(ctx):
+async def chiSono(ctx) -> None:
     author: str = ctx.author.mention
     channel: str = ctx.channel
     await ctx.reply(f"sei {author} e stai scrivendo in {channel}")
 
 @bot.command()
-async def gatto(ctx):
+async def gatto(ctx) -> None:
     await ctx.send(file = utils.prendiFoto())
 
 @bot.command()
-async def frase(ctx, arg: str):
+async def frase(ctx, arg: str) -> None:
 
     frase: str = utils.prendiFrase(PATH_TEXT)
     frase = utils.formattaInsulto(frase, arg)

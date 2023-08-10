@@ -21,7 +21,7 @@ puoi farlo ma é scomodo consigliato anche questo se vuoi rendere elegante il co
 
 
 
-def prendiFoto():
+def prendiFoto() -> discord.File or str:
     try:
 
         PATH_CAT = os.environ.get("PATH_CAT_FILE")
@@ -36,7 +36,7 @@ def prendiFoto():
     except Exception as e:
         return f"c'é stato il seguente errore {e}"
 
-def  prendiFrase(path: str):
+def  prendiFrase(path: str) -> str:
     frasi: list[str]  = []
     try:
         with open(path) as f:
@@ -47,7 +47,7 @@ def  prendiFrase(path: str):
     except Exception as e:
         return f"c'é stato il seguente errore: {e}"
 
-def formattaInsulto(frase: str, arg: str):
+def formattaInsulto(frase: str, arg: str) -> str:
     frase = frase.replace("{PLACEHOLDER}", arg)
     return frase
 
