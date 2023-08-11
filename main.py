@@ -1,6 +1,6 @@
 import os
 
-import requests
+
 from discord.ext import commands
 import discord
 from dotenv import load_dotenv
@@ -56,7 +56,7 @@ async def Sorgente(ctx) -> None:
 
 @bot.command()
 async def Norris(ctx) -> None:
-    response: requests.Response= utils.chuckNorris("https://api.chucknorris.io/jokes/random")
+    response: dict[str:] = utils.JsonResponseHandler("https://api.chucknorris.io/jokes/random")
     cit = response['value']
     await ctx.send(cit)
 

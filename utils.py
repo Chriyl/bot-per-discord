@@ -54,9 +54,8 @@ def formattaInsulto(frase: str, arg: str) -> str:
     frase = frase.replace("{PLACEHOLDER}", arg)
     return frase
 
-def chuckNorris(url: str) -> dict:
+def JsonResponseHandler(url: str) -> dict:
     response = requests.get(url)
     data = response.json()  # Converte la risposta in dati JSON
     return data
 
-print(chuckNorris("https://api.chucknorris.io/jokes/random"))
