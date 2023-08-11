@@ -2,7 +2,6 @@ import os
 import random
 import discord
 import requests
-import json
 from dotenv import load_dotenv
 
 load_dotenv(r'C:\Users\chris\OneDrive\Desktop\cred\credentials.env')
@@ -54,8 +53,11 @@ def formattaInsulto(frase: str, arg: str) -> str:
     frase = frase.replace("{PLACEHOLDER}", arg)
     return frase
 
-def JsonResponseHandler(url: str) -> dict:
-    response: requests.Response = requests.get(url)
-    data: dict[str:] = response.json()  # Converte la risposta in dati JSON
-    return data
+def JsonResponseHandler(url: str) -> dict or str:
+    try:
+        response: requests.Response = requests.get(url)
+        data: dict[str:] = response.json()  # Converte la risposta in dati JSON
+        return data
+    except Exception as e:
+        return f"c'é stato un errore: {e}"
 
