@@ -1,6 +1,8 @@
 import os
 import random
 import discord
+import requests
+import json
 from dotenv import load_dotenv
 
 load_dotenv(r'C:\Users\chris\OneDrive\Desktop\cred\credentials.env')
@@ -36,8 +38,8 @@ def prendiFoto() -> discord.File or str:
     except Exception as e:
         return f"c'é stato il seguente errore {e}"
 
-def  prendiFrase(path: str) -> str:
-    frasi: list[str]  = []
+def prendiFrase(path: str) -> str:
+    frasi: list[str:] = []
     try:
         with open(path) as f:
             for line in f:
@@ -47,9 +49,14 @@ def  prendiFrase(path: str) -> str:
     except Exception as e:
         return f"c'é stato il seguente errore: {e}"
 
+
 def formattaInsulto(frase: str, arg: str) -> str:
     frase = frase.replace("{PLACEHOLDER}", arg)
     return frase
 
+def chuckNorris(url: str) -> dict:
+    response = requests.get(url)
+    data = response.json()  # Converte la risposta in dati JSON
+    return data
 
-
+print(chuckNorris("https://api.chucknorris.io/jokes/random"))

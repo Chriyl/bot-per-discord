@@ -1,4 +1,6 @@
 import os
+
+import requests
 from discord.ext import commands
 import discord
 from dotenv import load_dotenv
@@ -51,6 +53,14 @@ async def frase(ctx, arg: str) -> None:
 @bot.command()
 async def Sorgente(ctx) -> None:
     ctx.send(r"https://github.com/Chriyl/bot-per-discord")
+
+@bot.command()
+async def Norris(ctx) -> None:
+    response: requests.Response= utils.chuckNorris("https://api.chucknorris.io/jokes/random")
+    cit = response['value']
+    await ctx.send(cit)
+
+
 
 
 bot.run(TOKEN) # qui il bot runna
