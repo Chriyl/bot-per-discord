@@ -50,7 +50,7 @@ async def frase(ctx, arg: str) -> None:
 
 @bot.command()
 async def Sorgente(ctx) -> None:
-    ctx.send("https://github.com/Chriyl/bot-per-discord")
+    ctx.send(r"https://github.com/Chriyl/bot-per-discord")
 
 
 bot.run(TOKEN) # qui il bot runna
