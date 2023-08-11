@@ -55,7 +55,7 @@ def formattaInsulto(frase: str, arg: str) -> str:
     return frase
 
 def JsonResponseHandler(url: str) -> dict:
-    response = requests.get(url)
-    data = response.json()  # Converte la risposta in dati JSON
+    response: requests.Response = requests.get(url)
+    data: dict[str:] = response.json()  # Converte la risposta in dati JSON
     return data
 
