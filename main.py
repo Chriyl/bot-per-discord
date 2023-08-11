@@ -48,6 +48,9 @@ async def frase(ctx, arg: str) -> None:
     frase = utils.formattaInsulto(frase, arg)
     await ctx.send(frase)
 
+@bot.command()
+async def Sorgente(ctx) -> None:
+    ctx.send("https://github.com/Chriyl/bot-per-discord")
 
 
 bot.run(TOKEN) # qui il bot runna
