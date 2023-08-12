@@ -2,6 +2,7 @@ import os
 import random
 import discord
 import requests
+from googletrans import Translator
 from dotenv import load_dotenv
 
 load_dotenv(r'C:\Users\chris\OneDrive\Desktop\cred\credentials.env')
@@ -61,3 +62,14 @@ def JsonResponseHandler(url: str) -> dict or str:
     except Exception as e:
         return f"c'é stato un errore: {e}"
 
+def traduci(frase: str) -> str:
+    translator = Translator()
+
+    fraseIta: str = translator.translate(frase, src='en', dest='it')
+    return fraseIta.text
+
+
+
+"""
+https://www.boredapi.com/api/activity/
+"""

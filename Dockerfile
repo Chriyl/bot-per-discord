@@ -14,6 +14,7 @@ WORKDIR /app
 # Installa le dipendenze Python
 RUN pip install discord.py
 RUN pip install python-dotenv
+RUN pip install googletrans
 
 # Esegui il tuo comando principale o avvia l'interprete Python
 CMD ["python", "main.py"]

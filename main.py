@@ -58,9 +58,14 @@ async def Sorgente(ctx) -> None:
 async def Norris(ctx) -> None:
     response: dict[str:] = utils.JsonResponseHandler("https://api.chucknorris.io/jokes/random")
     cit = response['value']
+    cit = utils.traduci(cit)
     await ctx.send(cit)
-
-
+@bot.command()
+async def Noia(ctx) -> None:
+    response: dict[str:] = utils.JsonResponseHandler("https://www.boredapi.com/api/activity/")
+    cit: str = response['activity']
+    cit = utils.traduci(cit)
+    await ctx.send(cit)
 
 
 bot.run(TOKEN) # qui il bot runna
