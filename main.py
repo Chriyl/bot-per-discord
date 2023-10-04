@@ -6,9 +6,7 @@ import discord
 from dotenv import load_dotenv
 import utils
 
-intents = discord.Intents.default()
-intents.typing = True
-intents.presences = True
+intents = discord.Intents().all()
 
 load_dotenv(dotenv_path=r"C:\Users\chris\OneDrive\Desktop\cred\credentials.env")
 # questo é il path delle credenziali, le credenziali
