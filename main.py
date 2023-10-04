@@ -6,9 +6,7 @@ import discord
 from dotenv import load_dotenv
 import utils
 
-intents = discord.Intents.default()
-intents.typing = True
-intents.presences = True
+intents = discord.Intents().all()
 
 load_dotenv(dotenv_path=r"C:\Users\chris\OneDrive\Desktop\cred\credentials.env")
 # questo é il path delle credenziali, le credenziali
@@ -20,7 +18,7 @@ PATH_TEXT: str = os.environ.get("PATH_TEXT_FILE")
 
 
 
-bot = commands.Bot(command_prefix="!", intents=intents) # specifici l'intenti del bot
+bot = commands.Bot(command_prefix="/", intents=intents) # specifici l'intenti del bot
 
 
 @bot.event # questo é il messaggio che esce in console se il bot va online
