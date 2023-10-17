@@ -65,5 +65,9 @@ async def Noia(ctx) -> None:
     cit = utils.traduci(cit)
     await ctx.send(cit)
 
+@bot.command()
+async def prova(ctx):
+    ...
+
 
 bot.run(TOKEN) # qui il bot runna
